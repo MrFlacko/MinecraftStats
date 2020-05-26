@@ -1,70 +1,76 @@
 <!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="js/lib/bootstrap-4.3.1.min.css" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="data/server-icon.png" />
-    <title>Survival Stats</title>
-</head>
-
-<body>
-    <div>
-        <h2 style="text-align: center;margin-top: 15px;">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="js/lib/bootstrap-4.3.1.min.css"/>
+      <link rel="stylesheet" href="style.css"/>
+      <link rel="icon" href="data/server-icon.png"/>
+      <title>Survival Stats</title>
+   </head>
+   <body>
+      <div id="topbox">
+         <h2 style="text-align: center;margin-top: 13px;">
             <a href="https://www.plexusmc.net/">
             <span>PlexusMC</span>
             </a>
             <a>Survival Stats</a>
-
-            <h3 style="text-align: center; margin-top: 11px;color:teal"><a id="IP"><br />play.plexusmc.net</a>
-                <button id="CopyText" style="font-size: x-small; color: rgba(255, 255, 255, 0.445)" onclick="CopyToClipboard('IP')">Copy</button>
-            </h3>
-        </h2>
-    </div>
-    <nav class="position-absolute navbar navbar-dark navbar-expand-sm ml-2 mt-4 p-1 round-box">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+         </h2>
+      </div>
+      <nav class="position-absolute navbar navbar-dark navbar-expand-sm ml-2 mt-4 p-1 round-box">
+         <!-- There is currently an issue with the navbar on mobile. It seems very laggy to open the navbar and
+         it isn't smooth at all. I would like to try and fix this, and make it a bit more smooth -->
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
          </button>
-        <div class="collapse navbar-collapse" id="navbarToggler">
+         <div class="collapse navbar-collapse" id="navbarToggler">
             <ul class="navbar-nav">
-                <li class="nav-item px-2">
-                    <a class="nav-link" href="https://www.plexusmc.net/">Back to forums</a>
-                </li>
-                <li class="nav-item px-2">
-                    <a class="nav-link" href="#awards">Awards</a>
-                </li>
-                <!-- <li class="nav-item px-2">
+               <li class="nav-item px-2">
+                  <a class="nav-link" href="https://www.plexusmc.net/">Back to forums</a>
+               </li>
+               <li class="nav-item px-2">
+                  <a class="nav-link" href="#awards">Awards</a>
+               </li>
+               <!-- This will be enabled once we have a use for the Events on the server. Currently this isn't set up. -->
+               <!-- <li class="nav-item px-2">
                   <a class="nav-link" href="#events">Events</a>
                   </li> -->
-                <li class="nav-item px-2">
-                    <a class="nav-link" href="#hof">Hall of Fame</a>
-                </li>
-                <li class="nav-item px-2">
-                    <a class="nav-link" href="#players">Players</a>
-                </li>
+               <li class="nav-item px-2">
+                  <a class="nav-link" href="#hof">Hall of Fame</a>
+               </li>
+               <li class="nav-item px-2">
+                  <a class="nav-link" href="#players">Players</a>
+               </li>
             </ul>
-        </div>
-    </nav>
-    <div id="header" class="clearfix text-center">
-        <div id="info" class="float-right ml-auto mr-2 mt-4 p-2 round-box medium text-right" style="display:none;">
-            <img id="server-icon" class="mr-1 img-textsize-3 align-bottom" title="" src="data/server-icon.png" />
-            <span id="server-name" class="d-none d-sm-inline text-shadow">(server name)</span>
-            <div class="small text-muted">
-                Last update: <span id="update-time" class="text-info">(last update)</span>
-            </div>
-        </div>
-    </div>
-    <div id="loader" class="container text-center mt-2">
-        <img class="img-pixelated img-textsize-8" src="img/loader.gif" />
-        <h4 class="mt-2 text-shadow">Loading...</h4>
-    </div>
-    <div id="content" style="display:none;">
-        <div id="view" class="container mx-auto">
+         </div>
+      </nav>
+   <div id="header" class="clearfix text-center">
+      <div id="info" class="float-right ml-auto mr-2 mt-4 p-2 medium text-right" style="display:none;">
+         <img id="server-icon" class="mr-1 img-textsize-3 align-bottom" title="" src="data/server-icon.png"/>
+         <span id="server-name" class="d-none d-sm-inline text-shadow">(server name)</span>
+         <div class="small text-muted">
+            Last update: <span id="update-time" class="text-info">(last update)</span>
+         </div>
+      </div>
+   </div>
+      <div id="ipSpacing">
+         <h3 style="text-align: center; margin-top: 14px;color:teal">
+            <a id="IP"><br />play.plexusmc.net</a>
+            <!-- Copy text currently doesn't work on mobile. Maybe a possible fix for the future.
+            Another possible fix in the future, is fix the issue when you highlight text, then
+            click the button, it copies the text you highlighted, not the IP address. -->
+            <button id="CopyText" style="font-size: x-small; color: rgba(255, 255, 255, 0.445)" onclick="CopyToClipboard('IP')">Copy</button>
+         </h3>
+      </div>
+      <div id="loader" class="container text-center mt-2">
+         <img class="img-pixelated img-textsize-8" src="img/loader.gif"/>
+         <h4 class="mt-2 text-shadow">Loading...</h4>
+      </div>
+      <div id="content" style="display:none;">
+         <div id="view" class="container mx-auto">
             <div class="h1 my-4 text-center">
-                <img id="view-icon" class="img-pixelated img-left img-textsize align-baseline" />
-                <span id="view-title" class="text-underline text-shadow">(view title)</h1>
+               <img id="view-icon" class="img-pixelated img-left img-textsize align-baseline"/>
+               <span id="view-title" class="text-underline text-shadow">(view title)</span>
             </div>
             <h5 id="view-subtitle" class="text-center text-shadow">(view subtitle)</h5>
             <div id="view-desc" class="mb-2 text-muted text-center text-shadow">(view desc)</div>
@@ -72,10 +78,13 @@
          </div>
          <div id="footer" class="container-fluid mt-3 py-2 text-center text-muted small">
             <a href="https://github.com/pdinklag/MinecraftStats">MinecraftStats</a>
-            &ndash; written by Patrick Dinklage a.k.a. "pdinklag".<br/>
+            <a>&ndash; written by Patrick Dinklage a.k.a. "pdinklag".</a><br/>
             <a href="https://github.com/Zaserr/MinecraftStats">Theme</a>
-            <a>made by </a><a href="https://zaserr.xyz/">Zaserr</a><a> - Altered by </a><a href="https://github.com/MrFlacko/MinecraftStats">MrFlacko</a><br/>
-            Minecraft UI icons and default skins are trademarks and copyrights of <a href="http://mojang.com/">Mojang</a>.
+            <a>made by </a>
+            <a href="https://zaserr.xyz/">Zaserr</a>
+            <a> - Altered by </a><a href="https://github.com/MrFlacko/MinecraftStats">MrFlacko</a><br/>
+            <a>Minecraft UI icons and default skins are trademarks and copyrights of </a>
+            <a href="http://mojang.com/">Mojang</a>.
          </div>
       </div>
       <script src="js/lib/pako_inflate-1.0.10.min.js"></script>
