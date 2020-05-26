@@ -17,6 +17,30 @@ body{
 a{
     color:rgb(0, 126, 175)
 }
+#topbox {
+   height: 50px;
+   border: 1px solid transparent; 
+   /* Had to make the border transparent instead of 
+   removing it to avoid messing with stuff, not an 
+   ideal fix might check this out later to make it 
+   better. */
+}
+#ipSpacing {
+   width: 55%;
+   float: center; 
+   margin: 0 auto;
+   height: 70px;
+}
+#navbarToggler {
+   width: 18%;
+   float: left;
+   border: 1px solid transparent;
+   /* Had to make the border transparent instead of 
+   removing it to avoid messing with stuff, not an 
+   ideal fix might check this out later to make it 
+   better. This was because I was too lazy to go back
+   and add some more space for the NavBar*/
+}
 /* Button */
 button {
     padding:0!important;
